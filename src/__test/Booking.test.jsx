@@ -12,32 +12,25 @@ beforeAll(() => {
   };
 });
 
-describe("BookingInfo Component", () => {
-  it("should allow the user to select a date", () => {
+describe("Booking", () => {
+  it("user should be able to select a date & time from calendar & time-system.", () => {
     const updateBookingDetails = vi.fn();
     render(
       <MemoryRouter>
         <BookingInfo updateBookingDetails={updateBookingDetails} />
       </MemoryRouter>
     );
-    const dateInput = screen.getByLabelText(/Date/i);
-    fireEvent.change(dateInput, { target: { value: "2024-12-20" } });
-    expect(dateInput.value).toBe("2024-12-20");
+    const dateUserInput = screen.getByLabelText(/Date/i);
+    const timeUserInput = screen.getByLabelText(/Time/i);
+
+    fireEvent.change(dateUserInput, { target: { value: "2024-12-31" } });
+    fireEvent.change(timeUserInput, { target: { value: "22:00" } });
+
+    expect(dateUserInput.value).toBe("2024-12-31");
+    expect(timeUserInput.value).toBe("22:00");
   });
 
-  it("should allow the user to select a time", () => {
-    const updateBookingDetails = vi.fn();
-    render(
-      <MemoryRouter>
-        <BookingInfo updateBookingDetails={updateBookingDetails} />
-      </MemoryRouter>
-    );
-    const timeInput = screen.getByLabelText(/Time/i);
-    fireEvent.change(timeInput, { target: { value: "15:00" } });
-    expect(timeInput.value).toBe("15:00");
-  });
-
-  it("should allow the user to enter the number of players", () => {
+  it("user should be able to select number of players.", () => {
     const updateBookingDetails = vi.fn();
     render(
       <MemoryRouter>
@@ -45,7 +38,7 @@ describe("BookingInfo Component", () => {
       </MemoryRouter>
     );
     const playersInput = screen.getByLabelText(/Number of awesome bowlers/i);
-    fireEvent.change(playersInput, { target: { value: "3" } });
-    expect(playersInput.value).toBe("3");
+    fireEvent.change(playersInput, { target: { value: "2" } });
+    expect(playersInput.value).toBe("2");
   });
 });
