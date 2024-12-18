@@ -1,37 +1,30 @@
 import { http, HttpResponse } from "msw";
-
-export const spyOnBookingCall = vi.fn();
+const baseUrl = "https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com";
 
 export const handlers = [
-  http.post("https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com", async ({ request }) => {
-    // Esegui la chiamata spy qui
-    const booking = await request.json();
-    spyOnBookingCall(); // Ora lo spy viene chiamato correttamente nell'handler
+  http.post(baseUrl, async ({ request }) => {
+    const body = await request.json();
+    const { when, lanes, people, shoes } = body;
 
-    const price = parseInt(booking.people || 0) * 120 + parseInt(booking.lanes || 0) * 100;
-    const id = Math.random().toString(36).substring(2, 8).toUpperCase();
-
+    const price = parseInt(lanes) * 100 + parseInt(people) * 120;
     const confirmation = {
-      id,
-      when: booking.when,
-      lanes: booking.lanes,
-      people: booking.people,
-      shoes: booking.shoes || [],
-      price,
+      id: "12345",
+      price: price.toString(),
       active: true,
+      when,
+      lanes,
+      people,
+      shoes,
+      price,
     };
 
     sessionStorage.setItem("confirmation", JSON.stringify(confirmation));
+
     return HttpResponse.json(confirmation);
   }),
 
-  http.get("https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com/confirmation", () => {
-    const storedConfirmation = sessionStorage.getItem("confirmation");
-
-    if (!storedConfirmation) {
-      return HttpResponse.error(404, "No confirmation found");
-    }
-
-    return HttpResponse.json(JSON.parse(storedConfirmation));
+  http.get(baseUrl + "/confirmation", () => {
+    const data = JSON.parse(sessionStorage.getItem("confirmation"));
+    return HttpResponse.json(data || {});
   }),
 ];

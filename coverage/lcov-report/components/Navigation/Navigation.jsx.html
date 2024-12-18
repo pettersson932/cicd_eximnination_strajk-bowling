@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">27.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/18</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>1/4</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>5/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">27.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>5/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,42 +89,42 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import './Navigation.scss';
 import navicon from '../../assets/navicon.svg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 &nbsp;
-function Navigation() {
-    const navigate = useNavigate();
-    const [showMenu, setShowMenu] = useState(false);
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function Navigation() {</span></span>
+<span class="cstat-no" title="statement not covered" >    const navigate = useNavigate();</span>
+<span class="cstat-no" title="statement not covered" >    const [showMenu, setShowMenu] = useState(false);</span>
 &nbsp;
-    return (
-        &lt;nav className={ `navigation ${ <span class="branch-0 cbranch-no" title="branch not covered" >showMenu ? 'show-menu' : '</span>' }` }&gt;
-            &lt;img src={ navicon } className='navigation__icon'
-            onClick={ <span class="fstat-no" title="function not covered" >() =&gt; { setShowMenu(!showMenu) }} /</span>&gt;
-            &lt;a href="#" className={ `navigation__link ${ <span class="branch-0 cbranch-no" title="branch not covered" >showMenu ? '' : '</span>hide' }` } 
-            onClick={ <span class="fstat-no" title="function not covered" >() =&gt; { navigate('/') }}&gt;B</span>ooking&lt;/a&gt;
-            &lt;a href="#" className={ `navigation__link ${ <span class="branch-0 cbranch-no" title="branch not covered" >showMenu ? '' : '</span>hide' }` } 
-            onClick={ <span class="fstat-no" title="function not covered" >() =&gt; { navigate('/confirmation') }}&gt;C</span>onfirmation&lt;/a&gt;
-        &lt;/nav&gt;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cstat-no" title="statement not covered" >        &lt;nav className={ `navigation ${ showMenu ? 'show-menu' : '' }` }&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;img src={ navicon } className='navigation__icon'</span>
+<span class="cstat-no" title="statement not covered" >            onClick={ () =&gt; { setShowMenu(!showMenu) }} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;a href="#" className={ `navigation__link ${ showMenu ? '' : 'hide' }` } </span>
+<span class="cstat-no" title="statement not covered" >            onClick={ () =&gt; { navigate('/') }}&gt;Booking&lt;/a&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;a href="#" className={ `navigation__link ${ showMenu ? '' : 'hide' }` } </span>
+<span class="cstat-no" title="statement not covered" >            onClick={ () =&gt; { navigate('/confirmation') }}&gt;Confirmation&lt;/a&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/nav&gt;</span>
     )
-}
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
 export default Navigation;</pre></td></tr></table></pre>
 
@@ -133,7 +133,7 @@ export default Navigation;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-18T22:33:06.752Z
+                at 2024-12-18T22:39:10.514Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
