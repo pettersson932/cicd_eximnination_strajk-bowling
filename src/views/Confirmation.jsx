@@ -24,6 +24,7 @@ function Confirmation() {
             customClass="confirmation__input"
             defaultValue={confirmation.when.replace("T", " ")}
             disabled="disabled"
+            name="when" 
           />
           <Input
             label="Who"
@@ -31,6 +32,7 @@ function Confirmation() {
             customClass="confirmation__input"
             defaultValue={confirmation.people}
             disabled="disabled"
+            name="who" 
           />
           <Input
             label="Lanes"
@@ -38,6 +40,7 @@ function Confirmation() {
             customClass="confirmation__input"
             defaultValue={confirmation.lanes}
             disabled="disabled"
+            name="lanes" 
           />
           <Input
             label="Booking number"
@@ -45,6 +48,7 @@ function Confirmation() {
             customClass="confirmation__input"
             defaultValue={confirmation.id}
             disabled="disabled"
+            name="bookingNumber" 
           />
           <article className="confirmation__price">
             <p>Total:</p>
