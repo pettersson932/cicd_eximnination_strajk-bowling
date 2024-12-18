@@ -1,0 +1,1 @@
+Strajk-bowling | Anders Pettersson
