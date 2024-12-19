@@ -32,11 +32,23 @@ describe("Confirmation", () => {
 
     const price = JSON.parse(sessionStorage.getItem("confirmation")).price;
 
-    expect(screen.getByText("See you soon!")).toBeInTheDocument();
-    expect(screen.getByLabelText("When").value).toBe("2023-10-10 18:00");
-    expect(screen.getByLabelText("Who").value).toBe("4");
-    expect(screen.getByLabelText("Lanes").value).toBe("1");
-    expect(screen.getByLabelText("Booking number").value).toBe("12345");
-    expect(screen.findByText(`${price} SEK`)).toBeDefined();
+    await waitFor(() => {
+      expect(screen.getByText("See you soon!")).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(screen.getByLabelText("When").value).toBe("2023-10-10 18:00");
+    });
+    await waitFor(() => {
+      expect(screen.getByLabelText("Who").value).toBe("4");
+    });
+    await waitFor(() => {
+      expect(screen.getByLabelText("Lanes").value).toBe("1");
+    });
+    await waitFor(() => {
+      expect(screen.getByLabelText("Booking number").value).toBe("12345");
+    });
+    await waitFor(() => {
+      expect(screen.findByText(`${price} SEK`)).toBeDefined();
+    });
   });
 });

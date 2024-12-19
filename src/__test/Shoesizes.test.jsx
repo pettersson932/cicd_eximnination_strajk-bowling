@@ -92,4 +92,24 @@ describe("Shoe Sizes", () => {
       expect(screen.getAllByText(/Shoe size \/ person/i)).toHaveLength(3);
     });
   });
+
+  it("user should be able to remove a field for shoes", () => {
+    render(
+      <MemoryRouter>
+        <Booking />
+      </MemoryRouter>
+    );
+    const addShoeButton = screen.getAllByText("+")[0];
+    fireEvent.click(addShoeButton);
+    fireEvent.click(addShoeButton);
+
+    let shoeSizeInputs = screen.getAllByLabelText(/shoe size/i);
+    expect(shoeSizeInputs.length).toBe(2);
+
+    const removeShoeButton = screen.getAllByText("-")[0];
+    fireEvent.click(removeShoeButton);
+
+    shoeSizeInputs = screen.getAllByLabelText(/shoe size/i);
+    expect(shoeSizeInputs.length).toBe(1);
+  });
 });
