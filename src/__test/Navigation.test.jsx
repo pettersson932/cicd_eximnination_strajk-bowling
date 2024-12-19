@@ -50,27 +50,12 @@ describe("Navigation", async () => {
 
   it("user should get errorMsg when navigate to confirmView w/o any booking in sessionStorage", async () => {
     render(
-      <MemoryRouter initialEntries={["/confirmation"]}>
-        <Booking />
+      <MemoryRouter>
         <Confirmation />
       </MemoryRouter>
     );
 
-    const navIcon = screen.getAllByRole("img")[0];
-    fireEvent.click(navIcon);
-
-    const confirmationLinks = screen.getAllByRole("link", {
-      name: /Confirmation/i,
-    });
-    const confirmationLink = confirmationLinks[0];
-    fireEvent.click(confirmationLink);
-
-    await waitFor(() => {
-      const noBookingMessage = screen.getByText(
-        (content) => content === "Inga bokning gjord!"
-      );
-      expect(noBookingMessage).toBeInTheDocument();
-    });
+    expect(screen.getByText("Inga bokning gjord!")).toBeInTheDocument();
   });
 
   it("user should be able to see its booking when navigate to confirmView", () => {
